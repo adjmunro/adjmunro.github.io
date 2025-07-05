@@ -1,1 +1,42 @@
-Hello World!
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Adam Munro"/>
+    <meta name="description" content="Index of stuff I wrote."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- refresh page every x seconds -->
+    <!--meta http-equiv="refresh" content="5"/-->
+
+    <title>adjmunro's blog?</title>
+    
+    <link rel="stylesheet" type="text/css" href="./default.css"/>
+</head>
+<body>
+    <h1>Hello! This is my blog?</h1>
+    <p>Or somewhere I intend to put the notes and discussions of various things I've learnt, as a sort of living record that I can return to.</p>
+
+    <p>Well, there's nothing here right now, because I prefer to write in markdown (due to doc-comments, github, and <i> because i'm not a f*cking web dev - servers <b>terrify</b> me and i <b>scream</b> in the face of javascript</> lol; i'm only 80% kidding too <small>and 20% seen through by my parasocial relationship with theo@t3 too...</small></i>), and want to try my hand at writing a markdown to html converter in rust... just because I can.</p>
+
+    <h3>I also hope to (eventually) post about the following topics:</h3>
+    <ul>
+        <li>Clean architecture in app development, of which you can already read most of it <a href="https://gist.github.com/adjmunro/048929eccfd8af176545e4ff609839e9" tagert="_blank">here</a>. However, i feel i should still add a section on practical usecases and a note that many of the challenges may be uniquely kotlin problems, due to the visibility modifiers available to us.</li>
+        <li>UI architecture: MVI, MVVM, etc.</li>
+        <li>Why Android's has been completely borked for about 8 years, since FragmentManager went out of fashion, and before the hopeful promise that is navigation 3. Why  XML navigation graphs, the safe args plugin, and compose navigation 2 are bandaids on bandaids, and a practical stratergy that ensures type-safe navigation without circular gradle module dependency issues (the trick is to get rid of that awful xml, and put navarg data classes in the domain layer, then have the app associate navarg classes to fragments in a map to instantiate with FM. Yes it works; yes, navigating in code is painless. Sorry, but your navigation library is dumb af.)</li>
+        <li>The issues with Kotlin's error handling an Result class (and why I wrote my library, project-knomadic)</li>
+        <li>The issues with Kotlin's number classes <em>that lack f*cking math operators</em> and how i fixed it in project-kitty</li>
+        <li>Wrestling with dependabot for maximum quality-of-life</li>
+        <li>My convention plugin journey</li>
+        <li>The hacks I pulled to migrate Dagger2 (yes, <i>that dagger2</i>, not dagger hilt) to Koin.</li>
+        <li>Why/how I used Koin to eliminate build flavours, and redo our local feature flagging</li>
+        <li>Git worktrees</li>
+        <li>My dotfiles journey (this one's pretty cool... though it's far from over)</li>
+        <li>How to publish a library</li>
+        <li>How to build a custom webbrowser (it's shit, but it's mine!)</li>
+        <li>Crazy experiments to learn linux by installing 5 distros at once... and then being unable to boot into arch because my bootloader can't find the file for some reason? idk. working on that</li>
+    </ul>
+
+    <p>And that's not all - I plan to post about a variety of non-programming interests or just hard stuff i learn along the way. Also my CV... Speaking of CV, if you're trying to contact me on LinkedIn, i've been locked out for like a year because they want a MFA code i have no record of setting up or some very personal info... >.></p>
+</body>
+</html>
