@@ -20,20 +20,80 @@ a:link { color: green; }
 a:visited { color: grey; }
 a:hover, a:active { color: lightblue; }
 
-code {
-    display: block;
-    margin: 20px;
-    overflow-x: auto;
-    line-height: 1.4em;
-    font-size: 14px;
-    tab-size: 4;
-    background: #444;
-    color: #EEE;
-}
 var {
     padding: 4px;
     font-family: monospace, monospace;
     font-style: normal;
     font-size: 14px;
     background: #DEDEDE;
+}
+
+/* Code blocks container */
+pre {
+    margin: 20px 0;
+    padding: 16px;
+    padding-right: 80px; /* Space for copy button */
+    overflow-x: auto;
+    border-radius: 6px;
+    background: #2b2b2b;
+    position: relative;
+}
+
+/* Code block content */
+pre code {
+    display: block;
+    line-height: 1.5em;
+    font-size: 14px;
+    font-family: 'Courier New', Consolas, monospace;
+    tab-size: 4;
+    background: transparent;
+}
+
+/* Inline code - wraps naturally */
+:not(pre) > code {
+    padding: 2px 6px;
+    font-size: 0.9em;
+    font-family: 'Courier New', Consolas, monospace;
+    background: #e8e8e8;
+    color: #d73a49;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+/* Copy button */
+.copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-family: inherit;
+    background: #444;
+    color: #eee;
+    border: 1px solid #666;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.8;
+}
+
+.copy-button:hover {
+    background: #555;
+    border-color: #888;
+    opacity: 1;
+}
+
+.copy-button.copied {
+    background: #2ea043;
+    border-color: #2ea043;
+}
+
+/* Mermaid diagram container */
+.mermaid {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
 }

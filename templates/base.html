@@ -11,5 +11,65 @@
 </head>
 <body>
     {% block content %}{% endblock %}
+
+    <!-- Mermaid.js for diagram rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+    <!-- Code enhancements: Mermaid initialization and copy buttons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Convert Mermaid code blocks to diagrams
+            document.querySelectorAll('pre code').forEach(block => {
+                const text = block.textContent.trim();
+                // Check if this is a Mermaid diagram
+                if (text.match(/^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram|erDiagram|gantt|pie|journey|gitGraph)/)) {
+                    const mermaidDiv = document.createElement('div');
+                    mermaidDiv.className = 'mermaid';
+                    mermaidDiv.textContent = text;
+                    block.closest('pre').replaceWith(mermaidDiv);
+                }
+            });
+
+            // Initialize Mermaid with default theme (can be overridden per-diagram)
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'default',
+                securityLevel: 'loose'
+            });
+            mermaid.run();
+
+            // Add copy buttons to remaining code blocks
+            document.querySelectorAll('pre').forEach(pre => {
+                // Skip if already has a copy button
+                if (pre.querySelector('.copy-button')) return;
+
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.textContent = 'Copy';
+                button.setAttribute('aria-label', 'Copy code to clipboard');
+
+                button.addEventListener('click', async () => {
+                    const code = pre.querySelector('code').textContent;
+                    try {
+                        await navigator.clipboard.writeText(code);
+                        button.textContent = 'Copied!';
+                        button.classList.add('copied');
+                        setTimeout(() => {
+                            button.textContent = 'Copy';
+                            button.classList.remove('copied');
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Failed to copy:', err);
+                        button.textContent = 'Failed';
+                        setTimeout(() => {
+                            button.textContent = 'Copy';
+                        }, 2000);
+                    }
+                });
+
+                pre.appendChild(button);
+            });
+        });
+    </script>
 </body>
 </html>
