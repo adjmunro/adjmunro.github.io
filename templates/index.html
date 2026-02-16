@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Hello! This is my blog?</h1>
+<p>Or somewhere I intend to put the notes and discussions of various things I've learnt.</p>
+
+<h2>Recent Posts</h2>
+<ul>
+{% set posts_section = get_section(path="posts/_index.md") %}
+{% for page in posts_section.pages | slice(end=10) %}
+    {% if not page.extra.draft %}
+    <li>
+        <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time> -
+        <a href="{{ page.permalink }}">{{ page.title }}</a>
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>
+{% endblock %}

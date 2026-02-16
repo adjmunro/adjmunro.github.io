@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Tag: {{ term.name }} | {{ config.title }}{% endblock %}
+{% block content %}
+<nav><a href="/">← Home</a></nav>
+<h1>Tag: {{ term.name }}</h1>
+<ul>
+{% for page in term.pages %}
+    <li>
+        <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time> -
+        <a href="{{ page.permalink }}">{{ page.title }}</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

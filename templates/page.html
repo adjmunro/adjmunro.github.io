@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+{% block content %}
+<nav><a href="/">← Home</a></nav>
+<article>
+    <h1>{{ page.title }}</h1>
+    <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+
+    {% if page.taxonomies.tags %}
+    <p>Tags: {% for tag in page.taxonomies.tags %}<a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">#{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
+    {% endif %}
+
+    {{ page.content | safe }}
+</article>
+{% endblock %}

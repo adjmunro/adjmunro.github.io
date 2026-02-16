@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="author" content="Adam Munro"/>
+    <meta name="description" content="{{ page.description | default(value=config.description) }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}{{ config.title }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ get_url(path="default.css") }}"/>
+    <link rel="alternate" type="application/rss+xml" href="{{ get_url(path="rss.xml") }}"/>
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>
