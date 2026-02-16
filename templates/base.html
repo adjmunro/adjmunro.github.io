@@ -5,6 +5,7 @@
     <meta name="author" content="Adam Munro"/>
     <meta name="description" content="{{ page.description | default(value=config.description) }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'"/>
     <title>{% block title %}{{ config.title }}{% endblock %}</title>
     <link rel="stylesheet" href="{{ get_url(path="default.css") }}"/>
     <link rel="alternate" type="application/rss+xml" href="{{ get_url(path="rss.xml") }}"/>
@@ -13,7 +14,9 @@
     {% block content %}{% endblock %}
 
     <!-- Mermaid.js for diagram rendering -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.3/dist/mermaid.min.js"
+            integrity="sha384-R63zfMfSwJF4xCR11wXii+QUsbiBIdiDzDbtxia72oGWfkT7WHJfmD/I/eeHPJyT"
+            crossorigin="anonymous"></script>
 
     <!-- Code enhancements: Mermaid initialization and copy buttons -->
     <script>
@@ -30,11 +33,11 @@
                 }
             });
 
-            // Initialize Mermaid with default theme (can be overridden per-diagram)
+            // Initialize Mermaid with secure configuration
             mermaid.initialize({
                 startOnLoad: true,
                 theme: 'default',
-                securityLevel: 'loose'
+                securityLevel: 'strict'
             });
             mermaid.run();
 
